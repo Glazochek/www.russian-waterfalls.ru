@@ -1,0 +1,100 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style-waterfalls.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/info-waterfall-style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+
+{% block menu %}
+{% include 'mainapp/includes/menu.html' %}
+{% endblock %}
+
+<div class="block-list winf0">
+    <div class="name-wf">{{ waterfall.name }}</div>
+        <div class="text-info clc-3">
+                <div class="block-text-2">
+                  <div class="Height"><b>Высота: &nbsp;</b> {{ waterfall.height|default:"-" }}</div>
+                  <div class="Width"><b>Ширина: &nbsp;</b> {{ waterfall.weight|default:"-" }}</div>
+                  <div class="Location"><b>Место: &nbsp;</b> {{ waterfall.place|default:"-" }}</div>
+                  <div class="S S_catchment"><b>Площадь бассейна:&nbsp; </b>  {{ waterfall.S_catchment|default:"-" }}</div>
+                  <div class="S S_mirror"><b>Площадь зеркала: &nbsp;</b> {{ waterfall.S_mirror|default:"-" }}</div>
+                  <div class="water_consumption"><b>Расход воды: &nbsp;</b> {{ waterfall.water_consumption|default:"-" }}</div>
+                  <div class="Altitude_above_sea_level"><b>Высота над морем: &nbsp;</b> {{ waterfall.Altitude_above_sea_level|default:"-" }}</div>
+                  <div class="Energy_joules"><b>Энергия :&nbsp; </b> {{ waterfall.Energy_joules|default:"-" }}</div>
+                  <div class="cordinats"><b>Кординаты: &nbsp;</b> {{ waterfall.cordinats|default:"-" }}</div>
+                  <div class="cordinats"><b>Тип: &nbsp;</b> {{ waterfall.type|default:"-" }}</div>
+                </div>
+                <div class="text-block-3 clc-2">{{ waterfall.description|default:"-" }}<br>
+                  <br>
+                      <a class="b-tx-1" href="{% url 'info_district' waterfall_district.id %}">
+                        {{ waterfall_district.District_name }}
+                      </a>
+                  <br>
+<!--                  {{ waterfall_district.District_description|truncatechars:200 }}-->
+                </div>
+
+            </div>
+        {% if not waterfall %}
+        <h1 class="hh">Not found</h1>
+        {% else %}
+        <div class="info-div">
+          {% if waterfall.cordinats %}
+            <div class="map-block-1">
+
+                <div onmousemove="" id="map-2">
+
+                </div>
+
+            </div>
+          {% endif %}
+            <div class="block-wf-1">
+                  {% if not img %}<img class="nimg" src="{% static 'img/i.jpg' %}" alt="#">
+              {% else %}
+                  <div class="swiper-container mySwiper">
+                  <div class="swiper-wrapper">
+                    {% for i in img %}
+                     <div class="swiper-slide"><img class="img-wtrfl" src="{% static i %}" alt="#"></div>
+                    {% endfor %}
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+              {% endif %}
+              </div>
+            </div>
+        </div>
+        {% endif %}
+
+</div>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4478b2f4-1376-4d3f-835c-7ec0fce49b48"
+    type="text/javascript"></script>
+<script src="{% static 'js/placemark.js' %}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/js.js' %}"></script>
+<script src="{% static 'js/package.json' %}"></script>
+<script type="text/javascript">
+let crd = [{{ waterfall.cordinats }}]
+F5(crd)
+</script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>
+
+{% endblock %}

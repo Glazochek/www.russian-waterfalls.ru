@@ -1,0 +1,55 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style-waterfalls.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/info-waterfall-style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+
+{% block menu %}
+{% include 'mainapp/includes/menu.html' %}
+{% endblock %}
+
+<div class="block-list winf0 blck-srt-5">
+      {% if reg_text %}
+  <h1>{{ reg_text.District_name }}</h1>
+  <div class="ipm clc-4">{{ reg_text.District_description }}</div>
+  {% else %}
+  <h1>Россия</h1>
+  {% endif %}
+    <h1>Введите название водопада</h1>
+    <h3>{{ reg_text.text }}</h3>
+    <div class="block-sch">
+        <input autofocus id="srh" type="text" class="search" placeholder="Введите название водопада..">
+        <button onclick="F2('{{ reg }}')" class="btn-search">
+            <img src="{% static 'img/premium-icon-magnifier-2311526.png' %}" alt="#">
+        </button>
+    </div>
+</div>
+
+<script src="{% static 'js/placemark.js' %}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/js.js' %}"></script>
+{% endblock %}
+<script>
+    (function () {
+        document.querySelector('input').addEventListener('keydown', function (e) {
+            if (e.keyCode === 13) {
+                if (this.value !== '') {
+                    F2({{ reg }})
+                }
+
+            }
+        });
+    })();
+</script>

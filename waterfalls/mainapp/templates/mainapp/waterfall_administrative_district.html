@@ -1,0 +1,39 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style-waterfalls.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/info-waterfall-style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+
+{% block menu %}
+{% include 'mainapp/includes/menu.html' %}
+{% endblock %}
+
+<div class="block-list winf0">
+  {% if not waterfall_administrative_district %}
+  <h1 class="hh">Not found</h1>
+  {% else %}
+    <div class="name-wf">{{ waterfall_administrative_district.Administrative_District_name }}</div>
+        <div class="text-info">
+                <div class="text-block-3">{{ waterfall_administrative_district.Administrative_District_description|default:"-" }}</div>
+            </div>
+        {% endif %}
+
+</div>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4478b2f4-1376-4d3f-835c-7ec0fce49b48"
+    type="text/javascript"></script>
+<script src="{% static 'js/placemark.js' %}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/js.js' %}"></script>
+{% endblock %}

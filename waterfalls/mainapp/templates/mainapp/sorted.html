@@ -1,0 +1,66 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style-waterfalls.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/info-waterfall-style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+
+{% block menu %}
+{% include 'mainapp/includes/menu.html' %}
+{% endblock %}
+
+<div class="block-list winf0 blck-srt-5">
+  {% if reg_text %}
+  <h1>{{ reg_text.District_name }}</h1>
+  <div class="ipm clc-4">{{ reg_text.District_description|truncatechars:200 }}
+    <a class="ipm clc-4" href="{% url 'info_district' reg_text.id %}">далее</a></div>
+
+  {% else %}
+  <h1>Россия</h1>
+  {% endif %}
+  <h3>Выберите сортировку:</h3>
+  <div class="sorted">
+    <a href="{% url 'sorted' 'all' id_district 'all' 1 %}" class="btn-sort srt-1">По высоте</a>
+    <a href="{% url 'sorted' 'all' id_district 'all' 9 %}" class="btn-sort srt-1">По расходу воды</a>
+    <a href="{% url 'sorted' 'all' id_district 'all' 8 %}" class="btn-sort srt-1">По энергии</a>
+    <a href="{% url 'sorted' 'all' id_district 'all' 6 %}" class="btn-sort srt-1">По площади бассеина</a>
+    <a href="{% url 'sorted' 'all' id_district 'all' 0 %}" class="btn-sort srt-1">без сортировки</a>
+    <a href="{% url 'sorted' 'all' id_district 'all' 2 %}" class="btn-sort srt-1">По ширине</a>
+<!--    <a href="{% url 'sorted' 'all' id_district 'all' 5 %}" class="btn-sort srt-1">По высоте над у. м.</a>-->
+<!--    <a href="{% url 'sorted' 'all' id_district 'all' 7 %}" class="btn-sort srt-1">По площади зеркала</a>-->
+
+
+    <div id="types" onmousedown="F88(this, 'cl-btn', 'type-2')" class="btn-sort  srt-1">
+    <div id='type-2'>по типу</div>
+
+    <div class="types-1">
+      {% for btn_1 in btns_type %}
+      {% if btn_1.text %}
+        <button id="{{ btn_1.urls }}-btn-2"
+                onmousedown="F77({{ btn_1.urls }}, '{{ id_district }}')"
+                class="btn-sort cl-btn">{{ btn_1.text }}</button>
+      {% endif %}
+      {% endfor %}
+        <button id="all-btn-2"
+                onmousedown="F77(`all`, '{{ id_district }})'"
+                class="btn-sort all-2 cl-btn">все</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="{% static 'js/placemark.js' %}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/js.js' %}"></script>
+{% endblock %}

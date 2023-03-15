@@ -1,0 +1,36 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style-waterfalls.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/info-waterfall-style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+
+{% block menu %}
+{% include 'mainapp/includes/menu.html' %}
+{% endblock %}
+
+<div class="block-list winf0 blck-srt-5">
+  <h1>Выберите регион</h1>
+  <div class="sorted">
+    {% for i in reg %}
+        <a href="{% url 'search' i.urls %}" class="srt btn-sort">{{ i.text }}</a>
+    {% endfor %}
+    <a href="{% url 'search' 'all' %}" class="srt btn-sort">Россия</a>
+  </div>
+</div>
+
+<script src="{% static 'js/placemark.js' %}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/js.js' %}"></script>
+{% endblock %}

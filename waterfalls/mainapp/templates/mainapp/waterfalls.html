@@ -1,0 +1,98 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style-waterfalls.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+{% block menu %}
+  {% include 'mainapp/includes/menu.html' %}
+{% endblock %}
+
+<!--<div class="sorted" style="margin-bottom:6px;">-->
+<!--        {% for btn in btns %}-->
+<!--        <button id="{{ btn.urls }}-btn-0" onmousedown="F55({{ btn.urls }})"-->
+<!--            class="btn-sort">{{ btn.text }}</button>-->
+<!--        {% endfor %}-->
+<!--        <div class="probel"></div>-->
+<!--        <div id="types" onmousedown="F88(this, 'cl-btn', 'type-2')" class="btn-sort">-->
+
+<!--        <div id='type-2'>по типу</div>-->
+<!--          <div class="types-1">-->
+<!--            {% for btn_1 in btns_type %}-->
+<!--              <button class='cl-btn' id="{{ btn_1.urls }}-btn-2" onmousedown="F77({{ btn_1.urls }})" class="btn-sort">{{ btn_1.text }}</button>-->
+<!--            {% endfor %}-->
+<!--            <button class='cl-btn' id="all-btn-2" onmousedown="F77(`all`)" class="btn-sort">все</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div id="region" onmousedown="F88(this, 'cl-btn-1', 'region-2')" class="btn-sort">-->
+<!--        <div id="region-2">по региону</div>-->
+<!--          <div class="region-1">-->
+<!--            {% for btn_2 in btns_disrict %}-->
+<!--              <button class='cl-btn-1' id="{{ btn_2.urls }}-btn-1" onmousedown="F66({{ btn_2.urls }})" class="btn-sort">{{ btn_2.text }}</button>-->
+<!--            {% endfor %}-->
+<!--            <button class='cl-btn-1' id="all-btn-1" onmousedown="F66(`all`)" class="btn-sort">все</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="probel"></div>-->
+<!--        <button id="0-btn-0" onmousedown="F55(13)" class="btn-sort">без сортировки</button>-->
+<!--    </div>-->
+
+<div class="block-sch">
+    <input autofocus id="srh" type="text" class="search" placeholder="Введите название водопада..">
+    <button onclick="F2('{{ district_id }}')" class="btn-search">
+        <img src="{% static 'img/premium-icon-magnifier-2311526.png' %}" alt="#">
+    </button>
+</div>
+
+<div class="block-list">
+  <h1>{{ district }}</h1>
+    <div class="name-colomn">
+        <div class="name-a">
+                <div class="n Height">ID</div>
+                <div class="n Name">название</div>
+                <div class="n Height">высота</div>
+                <div class="n Width">ширина</div>
+                <div class="n Location">местоположение</div>
+                <div class="n water_consumption">расход воды</div>
+                <div class="n Altitude_above_sea_level">высота над морем</div>
+                <div class="n Energy_joules">енергия</div>
+                <div class="n S S_catchment">площадь водосбора</div>
+                <div class="n S S_mirror">площадь зеркала</div>
+        </div>
+    </div>
+
+    <div onmousedown="F4()" class="waterfall_info"></div>
+
+    <div class="colomn">
+        {% if not sl %}
+        <h1 class="hh">Not found</h1>
+        {% endif %}
+
+        {% for inf in sl %}
+        <div onmousedown="F4({{ inf.id }})" class="inf">
+                    <div class="n Height">{% if inf.id and inf.id != "-" %}{{ inf.id }}{% else %}-{% endif %}</div>
+                    <div class="n Name">{% if inf.name and inf.name != "-" %}{{ inf.name }}{% else %}-{% endif %}</div>
+                    <div class="n Height">{% if inf.height and inf.height != "-" %}{{ inf.height }} m{% else %}-{% endif %}</div>
+                    <div class="n Width">{% if inf.weight and inf.weight != "-" %}{{ inf.weight }} m{% else %}-{% endif %}</div>
+                    <div class="n Location">{% if inf.place and inf.place != "-" %}{{ inf.place|truncatechars:40 }}{% else %}-{% endif %}</div>
+                    <div class="n water_consumption">{% if inf.water_consumption and inf.water_consumption != "-" %}{{ inf.water_consumption }} куб\сек {% else %}-{% endif %}</div>
+                    <div class="n Altitude_above_sea_level">{% if inf.Altitude_above_sea_level and inf.Altitude_above_sea_level != "-" %} {{ inf.Altitude_above_sea_level }} m{% else %}-{% endif %}</div>
+                    <div class="n Energy_joules">{% if inf.Energy_joules and inf.Energy_joules != "-" %}{{ inf.Energy_joules }} Дж{% else %}-{% endif %}</div>
+                    <div class="n S">{% if inf.S_catchment and inf.S_catchment != "-" %}{{ inf.S_catchment }} km2{% else %}-{% endif %}</div>
+                    <div class="n S">{% if inf.S_mirror and inf.S_mirror != "-" %}{{ inf.S_mirror }} m2{% else %}-{% endif %}</div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4478b2f4-1376-4d3f-835c-7ec0fce49b48"
+    type="text/javascript"></script>
+<script src="{% static 'js/js.js' %}"></script>
+{% endblock %}

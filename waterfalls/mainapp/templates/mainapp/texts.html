@@ -1,0 +1,68 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style-waterfalls.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+{% block menu %}
+{% include 'mainapp/includes/menu.html' %}
+{% endblock %}
+
+
+  <div class="block-list txt-block blck-srt-5 ipm" style="margin:10px;">
+    {% for t in text %}
+      {% if res %}
+        <a class="hrf-1" href="{% url 'text' t.id %}">
+          <h1 id="txt-{{ t.id }}" style="color:white;">{{ t.text_name }}</h1>
+        </a>
+        <div class="ipm">
+      {% else %}
+          <a href="{% url 'text' t.id %}">
+            <h1 id="txt-{{ t.id }}" style="color:white;">{{ t.text_name }}</h1>
+          </a>
+        <div class="ipm">
+
+      {% endif %}
+
+      {% if res %}
+      {% else %}
+        <div class="tx-pages">{{ t.text|linebreaks }}
+        {% if img %}
+        <div class="mySwiper">
+            {% for i in img %}
+             <div class="swiper-slide">
+               <img class="img-txt" src="{{ i.1 }}" alt="#">
+               <h4 class="picture-wtrfl-1">{{ i.0 }} рис.</h4>
+             </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        </div>
+             <div class="nx-br">
+            <a class="nxbf" style="color: white;" href="{% url 'text' bfr %}"><</a>
+            <a class="nxbf" style="color: white;" href="{% url 'text' next %}">></a>
+          </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/js.js' %}"></script>
+<script src="{% static 'js/pakge_2.json' %}"></script>
+<script>
+<!--  var swiper = new Swiper(".mySwiper", {-->
+<!--    spaceBetween: 30,-->
+<!--    pagination: {-->
+<!--      el: ".swiper-pagination",-->
+<!--      clickable: true,-->
+<!--    },-->
+<!--  });-->
+</script>
+{% endblock %}

@@ -1,0 +1,174 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block content %}
+
+<div id="wf" class="waterfall"></div>
+<div class="waterfall-blur"></div>
+<div onmousedown="F4()" class="waterfall_info"></div>
+<div class="header">
+    {% block menu %}
+    <div class="menu">
+      <div class="links">
+<!--         <a onmousedown="F99('clc-1')" class="href">База данных</a>-->
+<!--          <div id="clc-1" class="block-hrefs">-->
+<!--                      <a class="href" href="{% url 'search_regions' %}">Поиск по названию</a>-->
+<!--                      <a class="href" href="{% url 'regions' %}">Таблица с сортировками</a>-->
+<!--          </div>-->
+        <a class="href" href="{% url 'regions' %}">База данных</a>
+        <a class="href" href="{% url 'texts' %}">О водопадах</a>
+        <a class="href" href="/#auter">О нас</a>
+        <a class="href" href="/#contacts">Контакты</a>
+      </div>
+</div>
+    {% endblock %}
+
+    <div class="searcher">
+        <div class="tx-1">База данных российских водопадов</div>
+<!--        <div class="block-sch">-->
+<!--            <input autofocus id="srh" type="text" class="search" placeholder="Введите название водопада..">-->
+<!--            <button onclick="F2('all')" class="btn-search">-->
+<!--                <img src="{% static 'img/premium-icon-magnifier-2311526.png' %}" alt="#">-->
+<!--            </button>-->
+<!--        </div>-->
+
+    </div>
+</div>
+
+<div class="info-block map-block">
+    <div id="map"></div>
+</div>
+
+<!--<div class="info-block waterfalls-inf-block txt-block a-1">-->
+<!--    <h3>{{ txt.0.text_name }}</h3>-->
+<!--    <div class="ipm">{{ txt.0.text|linebreaks }}</div>-->
+
+<!--</div>-->
+
+<div class="info-block-waterfull">
+    {% for ts in txt %}
+    <div class="block-waterfall">
+        <div class="tx-3">{{ ts.text_name }}</div>
+        <div class="tx-4">{{ ts.text|truncatechars:60 }}
+        </div>
+        <button onclick="window.location.href = '{% url 'text' ts.id %}'" class="btn-wf">see more ></button>-->
+    </div>
+    {% endfor %}
+</div>
+<!--<div class="info-block slider-1">-->
+<!--    <div class="swiper-container mySwiper">-->
+<!--        <div class="swiper-wrapper">-->
+<!--            {% for text_sl in wt_slider %}-->
+<!--            <div class="swiper-slide">-->
+<!--                 <img src="{% static 'waterfalls/' %}{{ text_sl.0 }}" alt="#">-->
+<!--                <div class="tx-2">-->
+<!--                    <b class="b-tx-1">{{ text_sl.1 }}</b>-->
+<!--                    {{ text_sl.2 }}</div>-->
+<!--            </div>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--        <div class="swiper-pagination"></div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="info-block waterfalls-inf-block">-->
+<!--    <div class="block-list">-->
+<!--        <div class="name-colomn">-->
+<!--            <div class="name-a">-->
+<!--                <div class="n Name">название</div>-->
+<!--                <div class="n Height">высота</div>-->
+<!--                <div class="n Width">ширина</div>-->
+<!--                <div class="n Location">место</div>-->
+<!--                <div class="n water_consumption">расход воды</div>-->
+<!--                <div class="n Altitude_above_sea_level">высота над морем </div>-->
+<!--                <div class="n Energy_joules">энергия</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="colomn">-->
+<!--            {% for inf in texts_info %}-->
+<!--                <div onmousedown="F4({{ inf.id }})" class="inf">-->
+<!--                    <div class="n Name">{% if inf.name and inf.name != "-" %}{{ inf.name }}{% else %}-{% endif %}</div>-->
+<!--                    <div class="n Height">{% if inf.height and inf.height != "-" %}{{ inf.height }} m{% else %}-{% endif %}</div>-->
+<!--                    <div class="n Width">{% if inf.weight and inf.weight != "-" %}{{ inf.weight }} m{% else %}-{% endif %}</div>-->
+<!--                    <div class="n Location">{% if inf.place and inf.place != "-" %}{{ inf.place|truncatechars:40 }}{% else %}-{% endif %}</div>-->
+<!--                    <div class="n water_consumption">{% if inf.water_consumption and inf.water_consumption != "-" %}{{ inf.water_consumption }} m{% else %}-{% endif %}</div>-->
+<!--                    <div class="n Altitude_above_sea_level">{% if inf.Altitude_above_sea_level and inf.Altitude_above_sea_level != "-" %}{{ inf.Altitude_above_sea_level }} m{% else %}-{% endif %}</div>-->
+<!--                    <div class="n Energy_joules">{% if inf.Energy_joules and inf.Energy_joules != "-" %}{{ inf.Energy_joules }} {% else %}-{% endif %}</div>-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--    <a></a><button onclick="window.location.href = '{% url 'sorted' 'all' 'all' 'all' 0 %}';" class="btn-inf-more">more-->
+<!--        information</button></a>-->
+<!--</div>-->
+
+<div id="auter" class="info-block block-inf-auter">
+    <div class="tx-block-1">
+        <div class="tx-3 name-auter">Михаил Афанасьев</div>
+        <div class="tx-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nobis sed voluptatem
+            tenetur dolores deleniti?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui eos, nisi sequi
+            dicta, assumenda officia aliquam labore aspernatur quod incidunt doloremque non iure placeat libero veniam
+            inventore ut saepe voluptatum?</div>
+    </div>
+    <div class="block-img">
+        <img src="{% static 'img/IMG_0553_edited.jpg' %}" alt="#" class="img-auter">
+<!--        <div class="img-block-2">-->
+<!--            <img src="{% static 'img/WhatsApp Image 2022-07-02 at 13.32.07.jpeg' %}" alt="#" class="img-little">-->
+<!--            <img src="{% static 'img/WhatsApp Image 2022-07-02 at 13.32.08.jpeg' %}" alt="#" class="img-little">-->
+<!--        </div>-->
+    </div>
+</div>
+
+<div class="contacts-block">
+    <div id="contacts" class="contacts">
+        <div class="social-media">
+            <img src="{% static 'img/2-1619706285_15-phonoteka_org-p-znachok-instagram-bez-fona-dlya-fotoshopa-15.png' %}"
+                alt="#">
+            <img src="{% static 'img/2-799d7b286162a2ef9c4265b0c3195d4f.png' %}" alt="#">
+            <img src="{% static 'img/2--364-3648099_facebook-logo-red-transparent-fb-icon-white-png.png' %}" alt="#">
+            <img src="{% static 'img/2-telegram-logo-png-logos-telegram-transparent-amp-png-clipart-free-img-yawd-1600x1600.png' %}"
+                alt="#">
+        </div>
+        <div class="phone">
+            <div class="block-info-1">
+                <img src="{% static 'img/telephone-call.png' %}" alt="#">+7(968)085-10-15 <br>
+            </div>
+            <div class="block-info-1">
+                <img src="{% static 'img/email-envelope.png' %}" alt="#"> geotour.affa@gmail.com
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/js.js' %}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4478b2f4-1376-4d3f-835c-7ec0fce49b48"
+    type="text/javascript"></script>
+<script src="{% static 'js/lambert_map.js' %}"></script>
+<script src="{% static 'js/lambert_projection.js' %}"></script>
+
+    <script>
+    let cord_list = []
+    let name_list = []
+    let id_list = []
+    {% for crd in cord %}
+    {% if crd != "-" %}
+        cord_list.push([{{ crd.cordinats }}])
+    {% endif %}
+        name_list.push(['{{ crd.name }}'])
+        id_list.push({{ crd.id }})
+    {% endfor %}
+
+    F6(cord_list, name_list, id_list)
+    </script>
+
+{% endblock %}

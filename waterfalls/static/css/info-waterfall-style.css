@@ -1,0 +1,92 @@
+.mySwiper {
+    width: 97%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-div {
+    display: flex;
+    align-items: flex-start;
+}
+
+.block-list, .name-wf {
+    color: white;
+}
+
+.info-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-pagination {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.block-text-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.block-text-2 div{
+    width: 100%;
+}
+
+.info-div{
+    max-height: 400px;
+    width: 85%;
+}
+
+.block-list {
+    padding: 0px 5%;
+}
+
+.map-block-1 {
+    padding: 0;
+    margin-right: 10px;
+}
+
+
+.waterfalls-2 {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.a-2 {
+    overflow:scroll;
+}
+
+.swiper-pagination {
+    padding: 10px;
+}
+
+.swiper-slide {
+    padding: 10px;
+}
+
+.img-wtrfl {
+    width: 100%;
+}
+
+.nimg {
+    height: 100%;
+    width: 100%;
+}
+
+.map-block-1 {
+    width: 50%;
+}
+
+#map-2 {
+    width: 100% !important;
+    height: 100% !important;
+
+}
