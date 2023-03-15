@@ -1,51 +1,44 @@
 # www.russian-waterfalls.ru
 https://www.russian-waterfalls.ru - потрясающий сайт, написанный на Django, содержит Базу данных Российских водопадов.
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .general,
-        .block-1,
-        .bloack-3 {
-            margin: auto;
-            width: 100%;
-        }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+<style>
+    .general,
+    .block-1,
+    .bloack-3 {
+        margin: auto;
+        width: 100%;
+    }
 
-        .block-1 {
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-        }
+    .block-1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
 
-        .general {
-            padding: 10px;
-        }
+    }
 
-        .block-2 {
-            height: 100%;
-            width: 50vw;
-            height: 30vw;
-            padding: 10px;
-        }
+    .general {
+        padding: 10px;
+    }
 
-        .bloack-3 {
-            padding: 10px;
-        }
-    </style>
-</head>
+    .block-2 {
+        height: 100%;
+        width: 50vw;
+        height: 30vw;
+        padding: 10px;
+    }
+
+    .bloack-3 {
+        padding: 10px;
+    }
+</style>
 
 <body>
 
@@ -70,4 +63,3 @@ https://www.russian-waterfalls.ru - потрясающий сайт, напис�
 
 </body>
 
-</html>
