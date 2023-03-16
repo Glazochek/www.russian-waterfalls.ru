@@ -3,7 +3,7 @@ https://www.russian-waterfalls.ru - потрясающий сайт, напис�
    
 
 <div aligen="center">
-<img src="https://user-images.githubusercontent.com/87608167/225533061-22e94860-38be-446c-86f9-60ba83a83173.png"
+<img height="400" src="https://user-images.githubusercontent.com/87608167/225533061-22e94860-38be-446c-86f9-60ba83a83173.png"
     alt="">
 </div>
 
@@ -11,15 +11,15 @@ https://www.russian-waterfalls.ru - потрясающий сайт, напис�
 
 <div aligen="center">
 
-<img height="320" src="https://github.com/Glazochek/www.russian-waterfalls.ru/blob/main/imgs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-03-15%20135525.png?raw=true">
+<img height="320" weight="500" src="https://github.com/Glazochek/www.russian-waterfalls.ru/blob/main/imgs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-03-15%20135525.png?raw=true">
 
-<img height="320" src="https://github.com/Glazochek/www.russian-waterfalls.ru/blob/main/imgs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-03-15%20135510.png?raw=true">
+<img height="320" weight="500" src="https://github.com/Glazochek/www.russian-waterfalls.ru/blob/main/imgs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-03-15%20135510.png?raw=true">
 
 </div>
 
 <div aligen="center">
 
-<img height="400" src="https://github.com/Glazochek/www.russian-waterfalls.ru/blob/main/imgs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-03-15%20135653.png?raw=true"
+<img height="400" weight="500" src="https://github.com/Glazochek/www.russian-waterfalls.ru/blob/main/imgs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-03-15%20135653.png?raw=true"
  alt="">
  <img height="400" weight="500" src="https://github.com/Glazochek/www.russian-waterfalls.ru/blob/main/imgs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-03-15%20135545.png?raw=true"
  alt="">
