@@ -5,7 +5,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/Glazochek/www.russian-waterfalls.ru)
 ![GitHub top language](https://img.shields.io/github/languages/top/Glazochek/www.russian-waterfalls.ru)
 
-https://www.russian-waterfalls.ru - потрясающий сайт, написанный на Django, содержит Базу данных Российских водопадов.
+https://www.russian-waterfalls.ru - A stunning website written in Django contains a database of Russian waterfalls.
   
  
 
